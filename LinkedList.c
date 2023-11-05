@@ -1,10 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
+
+//Initializing the Linked List
+
 struct node
 {
     int data;
     struct node *next;
 };
+
+//Printing the Linked List
+
 void print(struct node *ptr)
 {
     while (ptr != NULL)
@@ -13,6 +19,9 @@ void print(struct node *ptr)
         ptr = ptr -> next;
     }
 }
+
+//Insertion at the Beginning
+
 struct node * beginning(struct node *head, int data)
 {
     struct node *ptr = (struct node*)(malloc(sizeof(struct node)));
@@ -20,6 +29,9 @@ struct node * beginning(struct node *head, int data)
     ptr -> data = data;
     return ptr;
 }
+
+//Insertion at the End
+
 struct node *appendNode(struct node *head, int data)
 {
     struct node *ptr  =(struct node*)(malloc(sizeof(struct node)));
@@ -33,6 +45,9 @@ struct node *appendNode(struct node *head, int data)
     ptr -> data = data;
     return ptr;
 }
+
+//Insertion at Particular Position
+
 struct node* InsertAtPosition(struct node *head, int data, int position)
 {
     struct node * ptr = (struct node*)(malloc(sizeof(struct node)));
@@ -48,6 +63,9 @@ struct node* InsertAtPosition(struct node *head, int data, int position)
     p -> next = ptr;
     return ptr;
 }
+
+//Deleting the very first node
+
 struct node * DeleteFront(struct node* head)
 {
     struct node *ptr = head;
@@ -55,6 +73,9 @@ struct node * DeleteFront(struct node* head)
     free(ptr);
     return head;
 }
+
+//Deleting the Last Node
+
 struct node * DeleteEnd(struct node* head)
 {
     struct node *p = head;
@@ -68,6 +89,9 @@ struct node * DeleteEnd(struct node* head)
     free(q);
     return head;
 }
+
+//Deleting a Particular Node
+
 struct node * DeleteAtPosition(struct node* head, int position)
 {
     struct node *p = head;
@@ -83,8 +107,13 @@ struct node * DeleteAtPosition(struct node* head, int position)
     free(q);
     return head;
 }
+
+//The Main !!
+
 void main()
 {
+    //Creating The Linked List
+    
     struct node *head = (struct node*)(malloc(sizeof(struct node)));
     struct node *first = (struct node*)(malloc(sizeof(struct node)));
     struct node *second = (struct node*)(malloc(sizeof(struct node)));
@@ -97,6 +126,9 @@ void main()
     first -> next = second;
     second -> next = end;
     end -> next = NULL;
+
+    //Performing the Operations
+    
     head = beginning(head, 5);
     end = appendNode(end, 6);
     first = InsertAtPosition(head, 7, 2);
