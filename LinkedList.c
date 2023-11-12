@@ -43,7 +43,7 @@ struct node *appendNode(struct node *head, int data)
     p -> next = ptr;
     ptr -> next = NULL;
     ptr -> data = data;
-    return ptr;
+    return head;
 }
 
 //Insertion at Particular Position
@@ -61,7 +61,7 @@ struct node* InsertAtPosition(struct node *head, int data, int position)
     ptr -> next = p -> next;
     ptr -> data = data;
     p -> next = ptr;
-    return ptr;
+    return head;
 }
 
 //Deleting the very first node
@@ -130,8 +130,8 @@ void main()
     //Performing the Operations
     
     head = beginning(head, 5);
-    end = appendNode(end, 6);
-    first = InsertAtPosition(head, 7, 2);
+    head = appendNode(end, 6);
+    head = InsertAtPosition(head, 7, 2);
     head = DeleteFront(head);
     head = DeleteEnd(head);
     head = DeleteAtPosition(head, 2);
